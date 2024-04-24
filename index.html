@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול משימות</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>ניהול משימות</h1>
+    </header>
+    <main>
+        <section id="new-task">
+            <h2>יצירת משימה חדשה</h2>
+            <form id="task-form">
+                <label for="task-name">שם המשימה:</label>
+                <input type="text" id="task-name" required>
+                <label for="task-description">תיאור המשימה:</label>
+                <textarea id="task-description" required></textarea>
+                <button type="submit">+ הוספת משימה חדשה עכשיו!</button>
+            </form>
+            <p id="success-message" style="display: none;">המשימה נוספה בהצלחה!</p>
+        </section>
+        <section id="tasks">
+            <h2>משימות שיש לעשות</h2>
+            <ul id="task-list"></ul>
+        </section>
+        <section id="completed-tasks">
+            <h2>משימות שהושלמו</h2>
+            <ul id="completed-task-list"></ul>
+        </section>
+    </main>
+<script src="https://eliran.w3spaces.com/script.js"></script>
+
+</body>
+</html>
