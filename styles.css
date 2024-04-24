@@ -31,6 +31,8 @@ button:hover {
     padding: 10px;
     margin-bottom: 10px;
     background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
 }
 
 .completed-task {
@@ -42,4 +44,22 @@ button:hover {
     margin-top: 5px;
     font-size: 0.8em;
     color: #888;
+}
+
+.task-description {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.task-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.task-number {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
 }
