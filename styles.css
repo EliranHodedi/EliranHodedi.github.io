@@ -1,61 +1,39 @@
-body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    text-align: right;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-}
-
-main {
-    margin: 20px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
+.container {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 ul {
-    list-style-type: none;
     padding: 0;
+    list-style-type: none;
 }
 
-.completed {
+.task {
+    border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.completed-task {
     text-decoration: line-through;
-    color: #999;
 }
 
-#new-task label[for="task-timer"] {
+.timer {
+    display: flex;
+    align-items: center;
+}
+
+.timer button {
+    margin-right: 10px;
+}
+
+#success-message {
     display: none;
+    background-color: lightgreen;
+    padding: 10px;
+    margin-top: 10px;
 }
