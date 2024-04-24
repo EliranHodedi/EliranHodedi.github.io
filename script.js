@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskList = document.getElementById('task-list');
     const completedTaskList = document.getElementById('completed-tasks');
     const successMessage = document.getElementById('success-message');
-    
-    // Load tasks from localStorage on page load
-    loadTasks();
+    let taskCount = 0;
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -24,90 +22,42 @@ document.addEventListener('DOMContentLoaded', function() {
         const li = document.createElement('li');
         const checkbox = document.createElement('input');
         const span = document.createElement('span');
-        const timer = document.createElement('div');
-        const playButton = document.createElement('button');
-        const pauseButton = document.createElement('button');
-        const stopButton = document.createElement('button');
+        const descriptionDiv = document.createElement('div');
+        const actionsDiv = document.createElement('div');
         const currentDate = new Date().toLocaleDateString();
 
         checkbox.type = 'checkbox';
         span.textContent = name;
-        span.classList.add('task-title');
-        const taskDescription = document.createElement('div');
-        taskDescription.textContent = description;
-        taskDescription.classList.add('task-description');
-        timer.textContent = 'נוצר בתאריך: ' + currentDate;
-        playButton.textContent = '▶ הפעלה';
-        pauseButton.textContent = '⏸ השהייה';
-        stopButton.textContent = '⏹ עצירה';
-
+        descriptionDiv.textContent = description;
+        descriptionDiv.classList.add('task-description');
         li.classList.add('task');
 
-        playButton.addEventListener('click', function() {
-            // Code for starting the timer
-        });
+        const taskNumber = document.createElement('span');
+        taskNumber.textContent = ++taskCount;
+        taskNumber.classList.add('task-number');
 
-        pauseButton.addEventListener('click', function() {
-            // Code for pausing the timer
-        });
+        const playButton = createButton('▶ הפעלה', 'play');
+        const pauseButton = createButton('⏸ השהייה', 'pause');
+        const stopButton = createButton('⏹ עצירה', 'stop');
 
-        stopButton.addEventListener('click', function() {
-            // Code for stopping the timer
-        });
+        actionsDiv.classList.add('task-actions');
+        actionsDiv.appendChild(playButton);
+        actionsDiv.appendChild(pauseButton);
+        actionsDiv.appendChild(stopButton);
 
-        checkbox.addEventListener('change', function() {
-            if (checkbox.checked) {
-                li.classList.add('completed-task');
-                completedTaskList.appendChild(li);
-                li.removeChild(timer);
-            } else {
-                li.classList.remove('completed-task');
-                taskList.appendChild(li);
-                li.appendChild(timer);
-            }
-            // Save tasks to localStorage
-            saveTasks();
-        });
-
+        li.appendChild(taskNumber);
         li.appendChild(checkbox);
         li.appendChild(span);
-        li.appendChild(taskDescription);
-        li.appendChild(timer);
-        li.appendChild(playButton);
-        li.appendChild(pauseButton);
-        li.appendChild(stopButton);
+        li.appendChild(descriptionDiv);
+        li.appendChild(actionsDiv);
 
         taskList.appendChild(li);
-        // Save tasks to localStorage
-        saveTasks();
     }
 
-    function saveTasks() {
-        const tasks = [];
-        const completedTasks = [];
-        
-        taskList.querySelectorAll('.task').forEach(task => {
-            tasks.push(task.innerHTML);
-        });
-
-        completedTaskList.querySelectorAll('.task').forEach(task => {
-            completedTasks.push(task.innerHTML);
-        });
-
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
-    }
-
-    function loadTasks() {
-        const tasks = JSON.parse(localStorage.getItem('tasks'));
-        const completedTasks = JSON.parse(localStorage.getItem('completedTasks'));
-        
-        if (tasks) {
-            taskList.innerHTML = tasks.join('');
-        }
-        
-        if (completedTasks) {
-            completedTaskList.innerHTML = completedTasks.join('');
-        }
+    function createButton(text, className) {
+        const button = document.createElement('button');
+        button.textContent = text;
+        button.classList.add(className);
+        return button;
     }
 });
