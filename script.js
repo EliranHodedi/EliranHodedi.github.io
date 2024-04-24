@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskList = document.getElementById('task-list');
     const completedTaskList = document.getElementById('completed-tasks');
     const successMessage = document.getElementById('success-message');
+    
+    // Load tasks from localStorage on page load
+    loadTasks();
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -28,14 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentDate = new Date().toLocaleDateString();
 
         checkbox.type = 'checkbox';
-        span.textContent = name + ': ' + description;
-        timer.textContent = 'Created on: ' + currentDate;
-        playButton.textContent = '▶ Play';
-        pauseButton.textContent = '⏸ Pause';
-        stopButton.textContent = '⏹ Stop';
+        span.textContent = name;
+        span.classList.add('task-title');
+        const taskDescription = document.createElement('div');
+        taskDescription.textContent = description;
+        taskDescription.classList.add('task-description');
+        timer.textContent = 'נוצר בתאריך: ' + currentDate;
+        playButton.textContent = '▶ הפעלה';
+        pauseButton.textContent = '⏸ השהייה';
+        stopButton.textContent = '⏹ עצירה';
 
         li.classList.add('task');
-        timer.classList.add('timer');
 
         playButton.addEventListener('click', function() {
             // Code for starting the timer
@@ -59,15 +65,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 taskList.appendChild(li);
                 li.appendChild(timer);
             }
+            // Save tasks to localStorage
+            saveTasks();
         });
 
         li.appendChild(checkbox);
         li.appendChild(span);
+        li.appendChild(taskDescription);
         li.appendChild(timer);
         li.appendChild(playButton);
         li.appendChild(pauseButton);
         li.appendChild(stopButton);
 
         taskList.appendChild(li);
+        // Save tasks to localStorage
+        saveTasks();
+    }
+
+    function saveTasks() {
+        const tasks = [];
+        const completedTasks = [];
+        
+        taskList.querySelectorAll('.task').forEach(task => {
+            tasks.push(task.innerHTML);
+        });
+
+        completedTaskList.querySelectorAll('.task').forEach(task => {
+            completedTasks.push(task.innerHTML);
+        });
+
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+    }
+
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem('tasks'));
+        const completedTasks = JSON.parse(localStorage.getItem('completedTasks'));
+        
+        if (tasks) {
+            taskList.innerHTML = tasks.join('');
+        }
+        
+        if (completedTasks) {
+            completedTaskList.innerHTML = completedTasks.join('');
+        }
     }
 });
