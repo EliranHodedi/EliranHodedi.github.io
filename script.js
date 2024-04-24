@@ -31,14 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentDate = new Date().toLocaleDateString();
 
         checkbox.type = 'checkbox';
-        span.textContent = name + ': ' + description;
-        timer.textContent = 'Created on: ' + currentDate;
-        playButton.textContent = '▶ Play';
-        pauseButton.textContent = '⏸ Pause';
-        stopButton.textContent = '⏹ Stop';
+        span.textContent = name;
+        span.classList.add('task-title');
+        const taskDescription = document.createElement('div');
+        taskDescription.textContent = description;
+        taskDescription.classList.add('task-description');
+        timer.textContent = 'נוצר בתאריך: ' + currentDate;
+        playButton.textContent = '▶ הפעלה';
+        pauseButton.textContent = '⏸ השהייה';
+        stopButton.textContent = '⏹ עצירה';
 
         li.classList.add('task');
-        timer.classList.add('timer');
 
         playButton.addEventListener('click', function() {
             // Code for starting the timer
@@ -68,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         li.appendChild(checkbox);
         li.appendChild(span);
+        li.appendChild(taskDescription);
         li.appendChild(timer);
         li.appendChild(playButton);
         li.appendChild(pauseButton);
