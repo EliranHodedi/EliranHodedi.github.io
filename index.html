@@ -3,57 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Broker IL - מסחר דמה</title>
+  <title>Broker IL - מסחר בזמן אמת</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>ברוקר IL - מסחר דמה</h1>
+    <h1>ברוקר IL - מניות בזמן אמת</h1>
     <button id="theme-toggle">🌓 מצב לילה</button>
   </header>
   <main>
-    <section class="welcome">
-      <p>ברוך הבא למערכת המסחר שלך. התחבר עם גוגל, בדוק מניות, והצטרף לתחרות!</p>
-    </section>
-
     <section class="stocks">
-      <h2>🔥 מניות מובילות</h2>
-      <table>
+      <h2>📈 מניות מובילות (LIVE)</h2>
+      <table id="stock-table">
         <thead>
           <tr>
+            <th>סימול</th>
             <th>שם</th>
-            <th>שינוי יומי</th>
-            <th>מחיר נוכחי</th>
+            <th>מחיר</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Apple</td>
-            <td class="green">+1.24%</td>
-            <td>$190.53</td>
-          </tr>
-          <tr>
-            <td>Tesla</td>
-            <td class="red">-2.07%</td>
-            <td>$173.22</td>
-          </tr>
-          <tr>
-            <td>NVIDIA</td>
-            <td class="green">+3.91%</td>
-            <td>$954.13</td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
-    </section>
-
-    <section class="leaderboard">
-      <h2>🏆 דירוג תחרות</h2>
-      <ul>
-        <li>1. אלירן – $112,000</li>
-        <li>2. יוסי – $109,320</li>
-        <li>3. מיכאל – $97,540</li>
-      </ul>
     </section>
   </main>
 </body>

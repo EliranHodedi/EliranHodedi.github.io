@@ -28,9 +28,6 @@ button#theme-toggle {
   color: white;
   cursor: pointer;
 }
-section {
-  margin-bottom: 30px;
-}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -40,8 +37,6 @@ th, td {
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
-.green { color: green; }
-.red { color: red; }
 body.dark {
   background-color: #121212;
   color: #eee;
