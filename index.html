@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <aside class="sidebar">
@@ -50,10 +49,37 @@
         <tbody></tbody>
       </table>
       <div class="info-banner">
-        <img src="trend-icon.png" alt="icon" class="info-icon">
+        <img src="trend-icon.svg" alt="icon" class="info-icon">
         <span>מוצגות המניות החמות ביותר היום לפי שינוי יומי</span>
       </div>
     </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyACxuvTszBvopferKqRjQ2b7_azTjQLBrI",
+        authDomain: "broker-il.firebaseapp.com",
+        projectId: "broker-il",
+        storageBucket: "broker-il.appspot.com",
+        messagingSenderId: "",
+        appId: ""
+      };
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      function signInWithGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).then(result => {
+          const user = result.user;
+          document.getElementById("user-name").textContent = user.displayName;
+          localStorage.setItem("broker_user_name", user.displayName);
+        }).catch(error => {
+          console.error("Login failed:", error);
+        });
+      }
+    </script>
+    <button onclick="signInWithGoogle()" class="btn-fancy">🔐 התחברות עם Google</button>
   </main>
 </body>
 </html>
