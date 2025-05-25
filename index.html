@@ -1,1 +1,59 @@
-...
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>Broker IL - דף הבית</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">📊</div>
+    <nav>
+      <div class="tooltip"><a href="#">🏠</a><span>דף הבית</span></div>
+      <div class="tooltip"><a href="profile.html">📋</a><span>המניות שלי</span></div>
+      <div class="tooltip"><a href="#">🏢</a><span>פתיחת חברה</span></div>
+      <div class="tooltip"><a href="#">🏆</a><span>תחרות</span></div>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <div class="user-info">👤 <span id="user-name">Eliran</span></div>
+      <div class="search-bar">
+        <input type="text" id="stock-search" placeholder="חפש מניה...">
+      </div>
+      <button id="theme-toggle">מצב לילה</button>
+    </header>
+
+    <div class="dashboard-container">
+      <div class="card-box">💵 יתרה: <strong id="dash-balance">$100,000</strong></div>
+      <div class="card-box">📊 מניות: <strong id="dash-stocks">0</strong></div>
+      <div class="card-box">📈 רווח: <strong id="dash-pnl">$0</strong></div>
+    </div>
+
+    <div class="widget-box">
+      <h2>🔥 טופ 10 מניות חמות</h2>
+      <table id="stock-table">
+        <thead>
+          <tr>
+            <th>סימול</th>
+            <th>שם</th>
+            <th>מחיר</th>
+            <th>שינוי</th>
+            <th>קנייה</th>
+            <th>מכירה</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="info-banner">
+        <img src="trend-icon.png" alt="icon" class="info-icon">
+        <span>מוצגות המניות החמות ביותר היום לפי שינוי יומי</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
