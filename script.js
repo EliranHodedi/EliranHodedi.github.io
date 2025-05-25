@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function fetchStocks() {
   const symbols = ["AAPL", "MSFT", "GOOGL", "TSLA", "META", "NVDA", "AMZN", "NFLX", "INTC", "AMD"];
-  const apiKey = "demo";
+  const apiKey = "M51GFmBCgOGoJlVXu6l6rZBASwC8TDhM";
+
   fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols.join(",")}?apikey=${apiKey}`)
     .then(res => res.json())
     .then(data => {
