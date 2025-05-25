@@ -2,7 +2,7 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <title>Broker IL</title>
+  <title>Broker IL - דף הבית</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -10,25 +10,30 @@
 </head>
 <body>
   <aside class="sidebar">
-    <h2>Broker IL</h2>
+    <h2>📊 Broker IL</h2>
     <nav>
-      <a href="#">דף הבית</a>
-      <a href="#">קנייה/מכירה</a>
-      <a href="#">המניות שלי</a>
-      <a href="#">פתיחת חברה</a>
-      <a href="#">תחרות</a>
+      <a href="#">🏠 דף הבית</a>
+      <a href="#">💰 קנייה/מכירה</a>
+      <a href="#">📋 המניות שלי</a>
+      <a href="#">🏢 פתיחת חברה</a>
+      <a href="#">🏆 תחרות</a>
     </nav>
   </aside>
   <main>
     <header>
-      <h1>ברוך הבא לדשבורד שלך</h1>
+      <h1>ברוך הבא למערכת המסחר של Broker IL</h1>
       <button id="theme-toggle">מצב לילה</button>
     </header>
+    <section class="cards">
+      <div class="card">💵 יתרה: <strong>$100,000</strong></div>
+      <div class="card">📊 מניות: <strong>7</strong></div>
+      <div class="card">📈 רווח: <strong>+$1,452</strong></div>
+    </section>
     <section>
-      <h2>📈 מניות בזמן אמת</h2>
+      <h2>🔥 טופ 10 מניות חמות</h2>
       <table id="stock-table">
         <thead>
-          <tr><th>סימול</th><th>שם</th><th>מחיר</th></tr>
+          <tr><th>סימול</th><th>שם</th><th>מחיר</th><th>שינוי</th></tr>
         </thead>
         <tbody></tbody>
       </table>

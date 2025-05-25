@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function fetchStocks() {
-  const symbols = ["AAPL", "MSFT", "GOOGL", "TSLA"];
+  const symbols = ["AAPL", "MSFT", "GOOGL", "TSLA", "META", "NVDA", "AMZN", "NFLX", "INTC", "AMD"];
   const apiKey = "demo";
-
   fetch(`https://financialmodelingprep.com/api/v3/quote/${symbols.join(",")}?apikey=${apiKey}`)
     .then(res => res.json())
     .then(data => {
@@ -19,8 +18,11 @@ function fetchStocks() {
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>${stock.symbol}</td>
-          <td>${stock.name}</td>
+          <td>${stock.name || "-"}</td>
           <td>$${stock.price}</td>
+          <td class="${stock.changePercent >= 0 ? 'positive' : 'negative'}">
+            ${stock.changePercent.toFixed(2)}%
+          </td>
         `;
         tbody.appendChild(row);
       });
