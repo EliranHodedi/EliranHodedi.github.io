@@ -20,9 +20,9 @@ function fetchStocks() {
         row.innerHTML = `
           <td>${stock.symbol}</td>
           <td>${stock.name || "-"}</td>
-          <td>$${stock.price}</td>
+          <td>$${stock.price?.toFixed(2)}</td>
           <td class="${stock.changePercent >= 0 ? 'positive' : 'negative'}">
-            ${stock.changePercent.toFixed(2)}%
+            ${stock.changePercent?.toFixed(2)}%
           </td>
         `;
         tbody.appendChild(row);
