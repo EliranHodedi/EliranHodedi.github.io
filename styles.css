@@ -1,1 +1,91 @@
-body { font-family: Assistant; background: #f5f6fa; direction: rtl; }
+body {
+  margin: 0;
+  font-family: 'Assistant', sans-serif;
+  background-color: #f8f9fb;
+  color: #2d2d2d;
+  direction: rtl;
+}
+.sidebar {
+  width: 60px;
+  background: #0f1021;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  margin: 20px 0;
+  cursor: pointer;
+}
+.sidebar img {
+  width: 30px;
+  transition: transform 0.3s;
+}
+.sidebar li:hover img {
+  transform: scale(1.2);
+}
+.main {
+  margin-right: 60px;
+  padding: 20px;
+}
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-info .user-icon {
+  width: 30px;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+#stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#stock-table th, #stock-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+.btn-fancy {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-fancy:hover {
+  background: #2563eb;
+}
+input#stock-search {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}

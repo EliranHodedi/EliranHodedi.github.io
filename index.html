@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Broker IL - דף הבית</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+  <title>Broker IL - מסחר בזמן אמת</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <aside class="sidebar">
-    <div class="logo">📊</div>
-    <nav>
-      <div class="tooltip"><a href="#">🏠</a><span>דף הבית</span></div>
-      <div class="tooltip"><a href="profile.html">📋</a><span>המניות שלי</span></div>
-      <div class="tooltip"><a href="#">🏢</a><span>פתיחת חברה</span></div>
-      <div class="tooltip"><a href="#">🏆</a><span>תחרות</span></div>
-    </nav>
+    <ul>
+      <li><img src="icons/home.svg" alt="בית"></li>
+      <li><img src="icons/stocks.svg" alt="מניות"></li>
+      <li><img src="icons/factory.svg" alt="חברה"></li>
+      <li><img src="icons/trophy.svg" alt="תחרות"></li>
+      <li><img src="icons/profile.svg" alt="פרופיל"></li>
+    </ul>
   </aside>
-
-  <main>
-    <header>
-      <div class="user-info">👤 <span id="user-name">Eliran</span></div>
-      <div class="search-bar">
-        <input type="text" id="stock-search" placeholder="חפש מניה...">
+  <main class="main">
+    <header class="main-header">
+      <div class="user-info">
+        <img src="icons/user.svg" alt="User" class="user-icon">
+        <span>ברוך הבא, משתמש</span>
       </div>
-      <button id="theme-toggle">מצב לילה</button>
+      <input type="text" id="stock-search" placeholder="חפש מניה...">
     </header>
-
-    <div class="dashboard-container">
-      <div class="card-box">💵 יתרה: <strong id="dash-balance">$100,000</strong></div>
-      <div class="card-box">📊 מניות: <strong id="dash-stocks">0</strong></div>
-      <div class="card-box">📈 רווח: <strong id="dash-pnl">$0</strong></div>
-    </div>
-
-    <div class="widget-box">
+    <section class="card">
       <h2>🔥 טופ 10 מניות חמות</h2>
       <table id="stock-table">
         <thead>
@@ -41,45 +32,14 @@
             <th>סימול</th>
             <th>שם</th>
             <th>מחיר</th>
-            <th>שינוי</th>
+            <th>שינוי יומי</th>
             <th>קנייה</th>
             <th>מכירה</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
-      <div class="info-banner">
-        <img src="trend-icon.svg" alt="icon" class="info-icon">
-        <span>מוצגות המניות החמות ביותר היום לפי שינוי יומי</span>
-      </div>
-    </div>
-
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyACxuvTszBvopferKqRjQ2b7_azTjQLBrI",
-        authDomain: "broker-il.firebaseapp.com",
-        projectId: "broker-il",
-        storageBucket: "broker-il.appspot.com",
-        messagingSenderId: "",
-        appId: ""
-      };
-      firebase.initializeApp(firebaseConfig);
-      const auth = firebase.auth();
-      function signInWithGoogle() {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).then(result => {
-          const user = result.user;
-          document.getElementById("user-name").textContent = user.displayName;
-          localStorage.setItem("broker_user_name", user.displayName);
-        }).catch(error => {
-          console.error("Login failed:", error);
-        });
-      }
-    </script>
-    <button onclick="signInWithGoogle()" class="btn-fancy">🔐 התחברות עם Google</button>
+    </section>
   </main>
 </body>
 </html>
